@@ -1,0 +1,60 @@
+<button class="click-me"><%= link_to 'Back to Recipes List', recipes_path, class: "custom-link" %></button>
+<h2 class='head-section recpTitle'><%= @recipe.name %></h2>
+
+<div class='container'>
+  <div class='indRecipeDetail'>
+    <h3>Preparation time:  <%= @recipe.preparation_time %>hours </h3>
+    <% if can? :destroy, @recipe %>
+      <span class="public-btn">
+        Public
+        <%= check_box_tag 'recipe[public]', 1, @recipe.public, disabled: !can?(:destroy, @recipe) %>
+      </span>
+    <% end %>
+  </div>
+  
+
+  <h3>Cooking time: <%= @recipe.cooking_time %> hours</h3>
+  <p>Steps go here...</p>
+
+  <div class="btnContainer">
+    <button id="openPopup" class="btn btn-primary">Generate Shopping List</button>
+
+    <% if can? :update, @recipe %>
+    
+        <label for="click" class="addIng click-me">Add Food</label>
+
+    <% end %>
+  </div>
+  <hr>
+
+   <%= render partial: 'common_features/addFood', locals: { recipe: @recipe } %>
+
+
+<div class="bd" id="popup" style="display: none;">
+  <h2>Generating Shopping List</h2>
+  <%= form_tag associate_inventory_recipe_path(@recipe), method: :post do %>
+    <p>Choose an inventory:</p>
+
+    <% if @inventories.any? %>
+      <%= select_tag 'inventory_id', options_for_select(@inventories.map { |inv| [inv.name, inv.id] }), include_blank: true %>
+    <% else %>
+    'no inventories found'
+    <% end %>
+    <%= submit_tag 'Generate Shopping List' %>
+  <% end %>
+
+  <button id="closePopup" class="close">&times;</button>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+    $("#openPopup").click(function() {
+      $("#popup").show();
+    });
+
+    $("#closePopup").click(function() {
+      $("#popup").hide();
+    });
+  });
+</script>

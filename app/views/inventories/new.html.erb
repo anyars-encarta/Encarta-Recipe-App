@@ -1,0 +1,28 @@
+<div class="container" >
+<div class="center" >
+
+
+<h1 class="notice">New Inventory</h1>
+
+<div class="Iform" >
+<%= form_with(model: @inventory, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Inventory' %>
+  </div>
+  
+  <%= link_to 'Back', inventories_path(current_user) %>
+<% end %>
+
+</div>
+
+</div>
+</div>

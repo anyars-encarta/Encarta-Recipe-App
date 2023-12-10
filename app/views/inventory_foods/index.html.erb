@@ -1,0 +1,32 @@
+<div class="container">
+<div class="center">
+
+<div class="head-section">
+<h1>Inventory Foods</h1>
+<%= link_to 'View Inventory Shopping List', inventory_path(@inventory) if @inventory %>
+<%= link_to 'Add Food To Inventory' , new_inventory_inventory_food_path(@inventory) %>
+<%= link_to 'Back', inventories_path %>
+</div>
+
+<table class="table">
+  <thead >
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventory_foods.each do |inventory_food| %>
+      <tr>
+        <td><%= inventory_food.food.name %></td>
+        <td><%= inventory_food.quantity %></td>
+      <td>  <%= link_to 'Remove item', inventory_inventory_food_path(@inventory, inventory_food), method: :delete, data: { confirm: 'Are you sure you want to remove this item?' } %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>

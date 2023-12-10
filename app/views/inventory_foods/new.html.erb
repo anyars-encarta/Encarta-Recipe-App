@@ -1,0 +1,25 @@
+<div class="container" >
+<div class="center" >
+
+<h1 class="notice">Inventory Foods</h1>
+
+<div class="Iform" >
+<%= form_for [@inventory, InventoryFood.new] do |f| %>
+  <div class="field">
+    <%= f.label :foods_id, 'Food' %>
+    <%= f.collection_select(:food_id, Food.all, :id, :name, prompt: 'Select a food') %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= f.submit 'Add Inventory Food' %>
+  </div>
+<% end %>
+</div>
+
+</div>
+</div>

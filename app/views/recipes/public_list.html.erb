@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="head-section">Public Recipe List</h1>
+  <ul class="recipes_list">
+    <% @public_recipes.each do |recipe| %>
+      <li>
+       <div class="ft">
+        <%= link_to raw("#{recipe.name} <br> By: #{recipe.user.name}"), recipe_path(recipe), class: "recipe-name" %>
+         <span class="totalFood">
+         <p>Total Food Items: <%= @total_food_items %></p>
+         <p>Total Price: <%= number_to_currency(@total_price) %></p>
+         </span>
+         </div>
+
+        <% if can? :destroy, recipe %>
+          <%= button_to "Delete", recipe, method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: "click-me" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+ 
+
+  <%= link_to 'Back to Recipes List', recipes_path, class: "btn btn-link" %>
+</div>

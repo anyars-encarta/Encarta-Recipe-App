@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag 'style' %>
+
+<div >
+  <% @users.each do |user| %>
+    <a class="container"  href="<%= user_path(user.id) %>" >
+      <div class="userCon">
+        <h1 class="userName"><%= user.name %></h1>
+      </div>
+    </a>
+  <% end %>
+</div>

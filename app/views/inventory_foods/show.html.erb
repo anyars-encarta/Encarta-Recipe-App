@@ -1,0 +1,33 @@
+<!-- app/views/inventory_foods/index.html.erb -->
+
+<h1>InventoryFoods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Inventory ID</th>
+      <th>Food ID</th>
+      <!-- Add more columns as needed -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventory_foods.each do |inventory_food| %>
+      <tr>
+        <td><%= inventory_food.quantity %></td>
+        <td><%= inventory_food.inventory_id %></td>
+        <td><%= inventory_food.food_id %></td>
+        <!-- Add more cells for additional attributes -->
+        <td><%= link_to 'Show', inventory_food %></td>
+        <td><%= link_to 'Edit', edit_inventory_food_path(inventory_food) %></td>
+        <td><%= link_to 'Destroy', inventory_food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New InventoryFood', new_inventory_food_path %>

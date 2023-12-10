@@ -1,0 +1,18 @@
+<% if recipe %>
+  <li class="recipes_list">
+    <div class="recipe_detail">
+      <h1 class="recipe-name">
+        <%= link_to recipe.name, recipe  %>
+      </h1>
+      <p class="recipe-des"> <%= recipe.description %></p>
+     
+    </div>
+    <div>
+     <% if can? :destroy, recipe %>
+        <%= button_to "Remove", recipe, method: :delete, data: { confirm: "Are you sure?" }, class: "new-button", form: { 'data-turbo-frame': '_top' } %>
+      <% end %>
+    </div>
+
+  </li>
+   
+<% end %>

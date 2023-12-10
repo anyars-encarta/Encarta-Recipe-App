@@ -1,0 +1,38 @@
+<div class="container">
+<div class="center">
+<div class="head-section">
+<h1>Inventories</h1>
+<%= link_to 'Create New Inventory', new_inventory_path %>
+
+<p> <%= link_to 'Back To Home', "/" %> </p>
+</div>
+
+<% flash.each do |type, message| %>
+  <div class="alert alert-<%= type %>">
+    <%= message %>
+  </div>
+<% end %>
+
+<table class="table">
+  <thead >
+    <tr>
+      <th>Inventory</th>
+      <th>description</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @inventories.each do |inventory| %>
+          <tr>
+        <td> <%= link_to inventory.name, inventory_inventory_foods_path(inventory) %> </td>
+        <td><%= inventory.description %></td>
+        <td>
+        <%= link_to 'Remove item', inventory_path(inventory), method: :delete, data: { confirm: 'Are you sure you want to remove this item?' } %>
+      </td>
+              </tr>
+    <% end %>
+  </tbody>
+
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="main-container">
+  <div class="recipes-container">
+    <h1 class="page-title">New Recipe</h1>
+  </div>
+  <%= form_with model: @recipe, url: recipes_path, class: 'form' do |form| %>
+    <div class="field">
+      <%= form.label :name, class: "name-label" %>
+      <%= form.text_field :name, placeholder: "Name", class: "name-input", required: true %>
+    </div>
+    <div class="field">
+      <%= form.label :preparation_time, class: "name-label" %>
+      <%= form.number_field :preparation_time, placeholder: "Preparation Time", class: "name-input", required: true, step: '0.01' %>
+    </div>
+    <div class="field">
+      <%= form.label :cooking_time, class: "name-label" %>
+      <%= form.number_field :cooking_time, placeholder: "Cooking Time", class: "name-input", required: true, step: '0.01' %>
+    </div>
+    <div class="field">
+      <%= form.label :public %>
+      <%= form.check_box :public, class: "name-input" %>
+    </div>
+    <div class="field">
+      <%= form.label :description, class: "name-label" %>
+      <%= form.text_area :description, placeholder: "Description", class: "name-input", required: true %>
+    </div>
+    <div class="field">
+      <%= form.submit "Create Recipe", class: "new-button" %> 
+    </div>
+  <% end %>
+</div>

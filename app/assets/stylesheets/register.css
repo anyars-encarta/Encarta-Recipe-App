@@ -1,0 +1,40 @@
+.ru-container {
+  border: 2px solid #27ae60;
+  width: 40%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ru-container h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.ru-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+.name,
+.email,
+.password {
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}

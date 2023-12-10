@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "nav", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= stylesheet_link_tag "modal", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= stylesheet_link_tag "missing-food", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= stylesheet_link_tag "register", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <%= javascript_include_tag 'rails-ujs' %>
+    <%= javascript_include_tag 'custom', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <nav class="nav-container">
+        <div class="left-menu">
+          <% if user_signed_in? %>
+            <form action="<%= destroy_user_session_path %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+
+            <p class="user">Welcome, <%= current_user.name %></p>
+          <% end %>
+        </div>
+
+        <ul>
+          <li><a href="/" data-turbolinks-track="true" class="<%= request.path == '/' ? 'active' : 'link' %>">Foods</a></li>
+          <li><a href="/recipes" data-turbolinks-track="true" class="<%= request.path == '/recipes' ? 'active' : 'link' %>">Recipes</a></li>
+          <li><a href="/public_recipes" data-turbolinks-track="true" class="<%= request.path == '/public_recipes' ? 'active' : 'link' %>">Public Recipes</a></li>
+          <li><a href="/inventories" data-turbolinks-track="true" class="<%= request.path == '/inventories' ? 'active' : 'link' %>">Inventories</a></li>
+          <li><a href="/missing_foods" data-turbolinks-track="true" class="<%= request.path == '/missing_foods' ? 'active' : 'link' %>">Food Shopping List</a></li>
+        </ul>
+      </nav>
+    <% end %>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+
+    <%= yield %>
+
+    <script>
+      $(document).ready(function() {
+        $(".sortable").click(function() {
+          var table = $(this).closest("table");
+          var rows = table.find("tbody > tr").get();
+
+          var ascending = $(this).hasClass("asc");
+          $(this).toggleClass("asc desc");
+
+          var columnIndex = $(this).index();
+
+          rows.sort(function(a, b) {
+            var aValue = $(a).find("td").eq(columnIndex).text(); 
+          var bValue = $(b).find("td").eq(columnIndex).text(); 
+            return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+          });
+
+          table.children("tbody").empty().append(rows);
+        });
+        // Set default sort class
+        $(".sortable").first().addClass("asc");
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="head-section">
+    <h1 class="page-title">List of Recipes</h1>
+    <%= link_to "New Recipe", new_recipe_path, class: "click-me" %>
+  </div>
+
+  
+
+  <ul>
+  <% if @public_recipes.empty? %>
+    <li>No Recipes.</li>
+  <% else %>
+    <% @public_recipes.each do |recipe| %>
+      <li>
+        <%= link_to raw("#{recipe.name} <br> By: #{recipe.user.name}"), recipe_path(recipe), class: "recipe-name" %>
+        <% if can? :destroy, recipe %>
+          <%= button_to "Delete", recipe, method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: "click-me" %>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+</div>

@@ -1,0 +1,116 @@
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#popup h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#popup p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+#popup select {
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+#popup button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#closePopup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+#closePopup:hover {
+  color: #333;
+}
+
+li {
+  list-style: none;
+}
+
+.recipes_list {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  position: relative;
+  list-style: none;
+}
+
+.recipe_detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipe-title-btn {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-name {
+  font-size: 1.5em;
+  margin: 0;
+  text-decoration: none;
+}
+
+.recipe-des {
+  margin: 10px 0;
+  margin-left: auto;
+}
+
+.indRecipeDetail {
+  display: flex;
+  flex-direction: row;
+}
+
+.public-btn {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 90px;
+}
+
+.addIng {
+  margin-left: auto;
+}
+
+.custom-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.ft {
+  display: flex;
+}
+
+.totalFood {
+  margin-left: auto;
+}

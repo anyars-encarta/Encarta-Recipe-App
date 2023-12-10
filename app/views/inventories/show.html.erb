@@ -1,0 +1,50 @@
+<div class="container"> 
+  <div class="center">
+
+    <div class="heading">
+      <h1 class="notice"><%= @inventory.name %> Shopping List</h1>
+    </div> 
+
+    <div class="mid-sec"> 
+      <section>
+        <span>Amount of food to buy : <%= @inventory.total_quantity %> </span>
+      </section>
+
+      <section>
+      Recipe: <% @inventory.recipes.each do |recipe| %>
+          <%= link_to recipe.name, recipe_path(recipe) %>
+      <% end %>
+      </section>
+
+      <section>
+        <span>Total Value Of Food Needed : $<%= @inventory.total_price %> </span>
+      </section>
+
+      <section>
+        <span>Inventory: <%= link_to @inventory.name, inventories_path(@inventory) %></span>
+      </section>
+       
+    </div>
+
+    <!-- Inventory Foods -->
+    <table class="table">
+      <thead>
+        <tr> 
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody> 
+        <% @inventory.inventory_foods.each do |inventory_food| %> 
+          <tr>
+            <td><%= inventory_food.food.name %></td>
+            <td><%= inventory_food.quantity %></td>
+            <td> $ <%= inventory_food.food.price %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
