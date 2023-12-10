@@ -28,16 +28,16 @@ nineth_food = Food.create(name:'Fufu', measurement_unit: 'kg', price: 25, quanti
 tenth_food = Food.create(name:'Pizza', measurement_unit: 'g', price: 55, quantity: 5, user_id: 2)
 
 # Inventories
-first_inv = Inventory.create(name:'Inventory 1', user_id: 1)
-second_inv = Inventory.create(name:'Inventory 2', user_id: 2)
-third_inv = Inventory.create(name:'Inventory 3', user_id: 1)
-fourth_inv = Inventory.create(name:'Inventory 4', user_id: 2)
-fifth_inv = Inventory.create(name:'Inventory 5', user_id: 1)
-sixth_inv = Inventory.create(name:'Inventory 6', user_id: 1)
-seventh_inv = Inventory.create(name:'Inventory 7', user_id: 2)
-eighth_inv = Inventory.create(name:'Inventory 8', user_id: 1)
-nineth_inv = Inventory.create(name:'Inventory 9', user_id: 2)
-tenth_inv = Inventory.create(name:'Inventory 10', user_id: 2)
+first_inv = Inventory.create(name:'Inventory 1', description:'This inventory description is out of this world', user_id: 1)
+second_inv = Inventory.create(name:'Inventory 2', description:'Maybe, this inventory description is out of the water', user_id: 2)
+third_inv = Inventory.create(name:'Inventory 3', description:'Yet another inventory description that is out of this planet', user_id: 1)
+fourth_inv = Inventory.create(name:'Inventory 4', description:'Which of the inventory description is out of this world', user_id: 2)
+fifth_inv = Inventory.create(name:'Inventory 5', description:'Can you handle the inventory description that is out of this world', user_id: 1)
+sixth_inv = Inventory.create(name:'Inventory 6', description:'Most times, this inventory description is out of this world', user_id: 1)
+seventh_inv = Inventory.create(name:'Inventory 7', description:'I can\'t beleive this inventory description is out of this world', user_id: 2)
+eighth_inv = Inventory.create(name:'Inventory 8', description:'Here comes another inventory description that is out of this world', user_id: 1)
+nineth_inv = Inventory.create(name:'Inventory 9', description:'Definitely or maybe not, this inventory description is out of this world', user_id: 2)
+tenth_inv = Inventory.create(name:'Inventory 10', description:'As I confirmed earlier, this inventory description is out of this world', user_id: 2)
 
 # Inventory Foods
 first_invF = InventoryFood.create(quantity: 3, inventory_id: first_inv.id, food_id: third_food.id)
