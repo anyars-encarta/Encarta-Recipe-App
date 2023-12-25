@@ -1,16 +1,33 @@
 .ru-container {
-  border: 2px solid #27ae60;
-  width: 40%;
-  padding: 10px;
-  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url("recipe-background.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+
+.user-container {
+  background-color: rgba(73, 73, 80, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 5%;
+  position: relative;
+  width: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 50px;
 }
 
-.ru-container h2 {
+.user-container h2 {
   text-align: center;
   margin-top: 80px;
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 .ru-form {
@@ -22,6 +39,14 @@
 
 .field {
   margin-bottom: 10px;
+}
+
+.label,
+.shared-links,
+.notice,
+.alert {
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 .name,
