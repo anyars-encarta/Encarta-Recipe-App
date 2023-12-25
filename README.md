@@ -9,7 +9,7 @@
 
 <!-- MAIN HEADING -->
 
-  <h3><b>Recipe App</b></h3>
+  <h3><b>Encarta Recipe App</b></h3>
 
 </div>
 
@@ -36,7 +36,7 @@
 - [📝 License](#license)
 
 <!-- INTRO -->
-# 📖 Recipe App <a name="about-project"></a>
+# 📖 Encarta Recipe App <a name="about-project"></a>
 
 > The Recipe app keeps track of all your recipes, ingredients, and inventory. It allows you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking, the app allows you to make them public so anyone can access them.
 
@@ -75,8 +75,8 @@
 > To get a local copy of the project, use this link:
 > 
 ```sh
-cd Recipe_App
-https://github.com/faisalakb/Recipe_App.git
+cd Encarta-Recipe-App
+https://github.com/anyars-encarta/Encarta-Recipe-App.git
 ```
 
 <!-- SETUP -->
