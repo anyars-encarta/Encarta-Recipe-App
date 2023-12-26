@@ -1,6 +1,11 @@
 require "active_support/core_ext/integer/time"
+require 'dotenv/rails-now'
+require 'dotenv/load'
+require "rails/all"
 
 Rails.application.configure do
+  Dotenv::Railtie.load
+  # Dotenv.load(".env")
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -36,10 +41,21 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Added to send emails
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: ENV['LOCAL_MAIL_HOST'] } 
+  
+  config.action_mailer.smtp_settings = {
+    address:       'smtp.gmail.com',
+    port:          587,
+    domain:         ENV['LOCAL_MAIL_HOST'], 
+    user_name:      ENV['SENDMAIL_USERNAME'],
+    password:       ENV['APP_SPEC_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
   
   config.action_mailer.perform_caching = false
 
