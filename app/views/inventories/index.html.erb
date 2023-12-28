@@ -2,9 +2,9 @@
 <div class="center">
 <div class="head-section">
 <h1>Inventories</h1>
-<%= link_to 'Create New Inventory', new_inventory_path %>
+<%= link_to 'Create New Inventory', new_inventory_path, class: "new-inventory" %>
 
-<p> <%= link_to 'Back To Home', "/" %> </p>
+<p> <%= link_to 'Back To Home', "/", class: "back-home" %> </p>
 </div>
 
 <% flash.each do |type, message| %>

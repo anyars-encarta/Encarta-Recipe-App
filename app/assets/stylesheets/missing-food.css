@@ -1,15 +1,21 @@
 .mf-container {
-  border: 2px solid black;
+  border: 2px solid #27ae60;
   width: 80%;
   padding: 10px;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .mf-container h1 {
   text-align: center;
+  color: #fff;
+}
+
+.left p, 
+.right p {
+  color: #fff;
 }
 
 .mf-head-values {
