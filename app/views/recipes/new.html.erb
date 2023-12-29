@@ -3,30 +3,30 @@
     <h1 class="page-title">New Recipe</h1>
   </div>
 
-  <div class="form-content">
-    <%= form_with model: @recipe, url: recipes_path, class: 'form' do |form| %>
+  <div class="form-content form-group">
+    <%= form_with model: @recipe, url: recipes_path, class: 'form form-horizontal' do |form| %>
       <div class="field">
         <%= form.label :name, class: "name-label" %>
-        <%= form.text_field :name, placeholder: "Name", class: "name-input", required: true %>
+        <%= form.text_field :name, placeholder: "Name", class: "name-input form-control", required: true %>
       </div>
       <div class="field">
         <%= form.label :preparation_time, class: "name-label" %>
-        <%= form.number_field :preparation_time, placeholder: "Preparation Time", class: "name-input", required: true, step: '0.01' %>
+        <%= form.number_field :preparation_time, placeholder: "Preparation Time", class: "name-input form-control", required: true, step: '0.01' %>
       </div>
       <div class="field">
         <%= form.label :cooking_time, class: "name-label" %>
-        <%= form.number_field :cooking_time, placeholder: "Cooking Time", class: "name-input", required: true, step: '0.01' %>
+        <%= form.number_field :cooking_time, placeholder: "Cooking Time", class: "name-input form-control", required: true, step: '0.01' %>
       </div>
       <div class="field">
         <%= form.label :public %>
-        <%= form.check_box :public, class: "name-input" %>
+        <%= form.check_box :public, class: "name-input form-control" %>
       </div>
       <div class="field">
         <%= form.label :description, class: "name-label" %>
-        <%= form.text_area :description, placeholder: "Description", class: "name-input", required: true %>
+        <%= form.text_area :description, placeholder: "Description", class: "name-input form-control", required: true %>
       </div>
       <div class="field">
-        <%= form.submit "Create Recipe", class: "new-button" %> 
+        <%= form.submit "Create Recipe", class: "new-button btn-primary" %> 
       </div>
     <% end %>
   </div>
